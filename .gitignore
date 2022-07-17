@@ -23,6 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-docker-compose-dev.yml
+*.docker-compose-dev.yml
 *.pem
 *.cert
