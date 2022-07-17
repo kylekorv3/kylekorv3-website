@@ -1,0 +1,60 @@
+version: "3"
+services:
+  redis:
+    image: redis:6-alpine
+    ports:
+      - "6379:6379"
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    command: sh -c "yarn run dev"
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=development
+      - EMAIL_RECIEVER=korver0311@gmail.com
+      - COOKIE_SECRET=cookie30678
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    volumes:
+      - /app/node_modules
+      - ./api:/app
+    command: sh -c "yarn run dev"
+    depends_on:
+      - redis
+      - worker
+  worker:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - EMAIL_HOST=hacknight.site@gmail.com
+      - EMAIL_PASSWORD=fgvidnhjxatkkfxw
+    volumes:
+      - /app/node_modules
+      - ./worker:/app
+    command: sh -c "yarn run dev"
+    depends_on:
+      - redis
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.dev
+    depends_on:
+      - api
+      - worker
+      - frontend
+    ports:
+      - "80:80"

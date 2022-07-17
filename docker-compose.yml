@@ -1,0 +1,44 @@
+version: "3"
+services:
+  redis:
+    hostname: redis
+    image: redis:6-alpine
+    ports:
+      - "6379:6379"
+  frontend:
+    hostname: frontend
+    image: "kylekorv3/hacknight-frontend"
+  api:
+    hostname: api
+    image: "kylekorv3/hacknight-api"
+    environment:
+      - NODE_ENV=$NODE_ENV
+      - EMAIL_RECIEVER=$EMAIL_RECIEVER
+      - COOKIE_SECRET=$COOKIE_SECRET
+      - REDIS_HOST=$REDIS_HOST
+      - REDIS_PORT=$REDIS_PORT
+    depends_on:
+      - worker
+      - redis
+    command: sh -c "yarn run start"
+  worker:
+    hostname: worker
+    image: "kylekorv3/hacknight-worker"
+    environment:
+      - REDIS_HOST=$REDIS_HOST
+      - REDIS_PORT=$REDIS_PORT
+      - EMAIL_HOST=$EMAIL_HOST
+      - EMAIL_PASSWORD=$EMAIL_PASSWORD
+    command: sh -c "yarn run start"
+    depends_on:
+      - redis
+  nginx:
+    hostname: nginx
+    image: "kylekorv3/hacknight-nginx"
+    depends_on:
+      - api
+      - frontend
+      - worker
+    ports:
+      - "80:80"
+      - "443:443"
