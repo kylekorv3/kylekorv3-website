@@ -7,10 +7,10 @@ services:
       - "6379:6379"
   frontend:
     hostname: frontend
-    image: "kylekorv3/hacknight-frontend"
+    image: "kylekorv3/kylekorv3-web-frontend"
   api:
     hostname: api
-    image: "kylekorv3/hacknight-api"
+    image: "kylekorv3/kylekorv3-web-api"
     environment:
       - NODE_ENV=$NODE_ENV
       - EMAIL_RECIEVER=$EMAIL_RECIEVER
@@ -23,7 +23,7 @@ services:
     command: sh -c "yarn run start"
   worker:
     hostname: worker
-    image: "kylekorv3/hacknight-worker"
+    image: "kylekorv3/kylekorv3-web-worker"
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
@@ -34,7 +34,7 @@ services:
       - redis
   nginx:
     hostname: nginx
-    image: "kylekorv3/hacknight-nginx"
+    image: "kylekorv3/kylekorv3-web-nginx"
     depends_on:
       - api
       - frontend
