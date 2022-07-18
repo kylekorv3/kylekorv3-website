@@ -14,7 +14,7 @@ const Portfolio = () => {
   const upwardAnimation = useAnimation();
   const boxAnimation = useAnimation();
   const [upwardRef, upwardInView] = useInView({
-    threshold: 1,
+    threshold: 0.5,
   });
   const [downwardRef, downwardInView] = useInView({
     threshold: 0.5,
