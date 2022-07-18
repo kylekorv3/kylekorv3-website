@@ -20,6 +20,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { useContext } from "react";
 import { BlogContext } from "../../BlogContext";
+import K_icon from "@assets/K-icon.webp";
 
 const Navbar = () => {
   const theme = useTheme();
@@ -34,7 +35,8 @@ const Navbar = () => {
     }
     setPageListOpen(toggle);
   };
-  const { mainRef, portfolioRef, projectsRef, contactRef } = useContext(BlogContext);
+  const { mainRef, portfolioRef, projectsRef, contactRef } =
+    useContext(BlogContext);
   const pageList = [
     {
       label: "Portfolio",
@@ -75,7 +77,7 @@ const Navbar = () => {
               }}
               sx={{ textTransform: "none" }}
             >
-              <Avatar src="../../../assets/K-icon.webp" />
+              <Avatar src={K_icon} />
               <Typography
                 variant="h5"
                 fontWeight="600"

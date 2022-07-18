@@ -3,6 +3,7 @@ import iconList from "./json/iconList";
 import { useContext } from "react";
 import { BlogContext } from "../../BlogContext";
 
+
 const Main = () => {
   const { portfolioRef } = useContext(BlogContext);
 
@@ -10,7 +11,7 @@ const Main = () => {
     <Container
       sx={{
         height: "100vh",
-        backgroundImage: "url(../../../assets/doge-bg.webp)",
+        backgroundImage: "url(https://i.imgur.com/DxIDZmY.jpg)",
         backgroundPosition: "83%",
         backgroundSize: "cover",
         display: "flex",

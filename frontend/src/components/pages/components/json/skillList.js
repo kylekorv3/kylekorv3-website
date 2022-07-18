@@ -1,7 +1,18 @@
+import js_icon from "@assets/js-icon.webp"
+import nodejs_icon from "@assets/nodejs-icon.webp"
+import py_icon from "@assets/py-icon.png"
+import react_icon from "@assets/react-icon.png"
+import mui_icon from "@assets/mui-icon.png"
+import docker_icon from "@assets/docker-icon.png"
+import pg_icon from "@assets/pg-icon.png"
+import redis_icon from "@assets/redis-icon.svg"
+import aws_icon from "@assets/aws-icon.png"
+
+
 const skillList = [
   {
     label: "Javascript",
-    icon: "../../../assets/js-icon.webp",
+    icon: js_icon,
     descriptions: [
       "Javascript is the basis of web development with HTML and CSS,",
       "called the three pillars of web-dev.",
@@ -11,7 +22,7 @@ const skillList = [
   },
   {
     label: "NodeJS",
-    icon: "../../../assets/nodejs-icon.webp",
+    icon: nodejs_icon,
     descriptions: [
       "NodeJS allows me to write backend APIs in JS.",
       "You can run a service in just a few lines of code,",
@@ -20,7 +31,7 @@ const skillList = [
   },
   {
     label: "Python",
-    icon: "../../../assets/py-icon.png",
+    icon: py_icon,
     descriptions: [
       "Python is a language created by God.",
       "I mainly use it to write crawlers,",
@@ -29,7 +40,7 @@ const skillList = [
   },
   {
     label: "React",
-    icon: "../../../assets/react-icon.png",
+    icon: react_icon,
     descriptions: [
       "I use React to build my front-end projects all the time.",
       "I love writing JSS syntax,",
@@ -38,7 +49,7 @@ const skillList = [
   },
   {
     label: "MaterialUI",
-    icon: "../../../assets/mui-icon.png",
+    icon: mui_icon,
     descriptions: [
       "MaterialUI is one of my most-used CSS Frameworks.",
       "There are many commonly-used UI components in it.",
@@ -47,7 +58,7 @@ const skillList = [
   },
   {
     label: "Docker",
-    icon: "../../../assets/docker-icon.png",
+    icon: docker_icon,
     descriptions: [
       "I use Docker to build the environment for a full-stack projects.",
       "With Docker Compose, making the development flexible and fast.",
@@ -55,7 +66,7 @@ const skillList = [
   },
   {
     label: "PostgreSQL",
-    icon: "../../../assets/pg-icon.png",
+    icon: pg_icon,
     descriptions: [
       "The first RMDBS I have learned,",
       "also called the table languages",
@@ -65,7 +76,7 @@ const skillList = [
   },
   {
     label: "Redis",
-    icon: "../../../assets/redis-icon.svg",
+    icon: redis_icon,
     descriptions: [
       "A Very fast database, often used to temporarily",
       "store the data like sessions and cookies",
@@ -75,7 +86,7 @@ const skillList = [
   },
   {
     label: "AWS",
-    icon: "../../../assets/aws-icon.png",
+    icon: aws_icon,
     descriptions: [
       "There are hundreds of services on AWS",
       "and there are many ways to build a cloud service",

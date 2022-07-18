@@ -1,10 +1,4 @@
-import {
-  Container,
-  Grid,
-  Avatar,
-  Button,
-  Typography,
-} from "@mui/material";
+import { Container, Grid, Avatar, Button, Typography } from "@mui/material";
 import skillList from "./json/skillList";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -17,7 +11,7 @@ const Portfolio = () => {
     threshold: 0.5,
   });
   const [downwardRef, downwardInView] = useInView({
-    threshold: 0.5,
+    threshold: 0.3,
   });
   useEffect(() => {
     if (upwardInView) {
@@ -45,8 +39,8 @@ const Portfolio = () => {
     } else {
       boxAnimation.start({
         opacity: 0,
-        x: 50,
-        y: 50,
+        x: "-100vw",
+        y: 0,
       });
     }
   }, [upwardInView, downwardInView]);
@@ -102,7 +96,7 @@ const Portfolio = () => {
               <motion.div
                 initial={{ opacity: 0, x: 0, y: 0 }}
                 animate={boxAnimation}
-                transition={{ duration: 1, delay: 0.1 * idx  }}
+                transition={{ duration: 0.7, delay: 0.05 * idx }}
               >
                 <Button
                   sx={{
