@@ -9,7 +9,7 @@ const corsConfig = (req, callback) => {
   if (process.env.NODE_ENV === "development") {
     callback(null, { origin: true });
   } else if (
-    new RegExp("^https://.*hacknight.site(/.*)*$").test(req.headers["referer"])
+    new RegExp("^https://.*kylekorv3.net(/.*)*$").test(req.headers["referer"])
   ) {
     callback(null, { origin: true });
   } else {
